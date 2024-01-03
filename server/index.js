@@ -19,8 +19,19 @@ mongoose.connect("mongodb+srv://romnick:1234@romnickdb.e14diyv.mongodb.net/reg")
 app.post('/register', async(req,res)=>{
     const {name,username,password} = req.body;
 
-    const saveUser = new User({name:name,username:username,password:password});
-    await saveUser.save();
+    const user = await User.findOne({username})
+    try {
+        if(user){
+        res.status(409).json({error: "User already exist"})
+        }else{
+        const saveUser = new User({name:name,username:username,password:password});
+        await saveUser.save();
+        }
+    } catch (error) {
+        
+    }
+
+    
 
 })
 
