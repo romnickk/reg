@@ -24,7 +24,7 @@ function App() {
 
     <form onSubmit={handleSubmit}>
       <h2>Register</h2>
-{/*       {error && <div style={{ color: 'red' }}>{error}</div>} */}
+      {error && <div style={{ color: 'red' }}>{error}</div>}
       <div className='mb-3'>
         <label htmlFor="name">
         <strong>Name:</strong>
