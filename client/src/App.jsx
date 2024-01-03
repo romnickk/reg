@@ -10,7 +10,7 @@ function App() {
  
   const handleSubmit = (e) =>{
     e.preventDefault();
-    axios.post('http://localhost:3000/register',  {name, username, password})
+    axios.post('reg-api-six.vercel.app/register',  {name, username, password})
     .then(result => console.log(result))
     .catch(err => console.log(err))
   }
