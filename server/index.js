@@ -7,7 +7,7 @@ const app = express();
 
 app.use(cors(
     {
-        origin: ["https://reg-client-mu.vercel.app/"],
+        origin: ["https://reg-client-mu.vercel.app"],
         methods:["POST","GET"],
         credentials:true
     }
