@@ -7,24 +7,17 @@ function App() {
   const [name , setName] = useState();
   const [username , serUsername] = useState();
   const [password , setPassword] = useState();
-  const [error, setError] = useState();
   const handleSubmit = (e) =>{
     e.preventDefault();
-    axios.post('https://reg-api-six.vercel.app/register',  {name, username, password})
+    axios.post('https://reg-api-six.vercel.app//register',  {name, username, password})
     .then(result => console.log(result))
     .catch(err => console.log(err))
-
-    const data = response.json();
-
-    setError(data.error)
   }
   return (
 
-    
-
     <form onSubmit={handleSubmit}>
       <h2>Register</h2>
-      {error && <div style={{ color: 'red' }}>{error}</div>}
+
       <div className='mb-3'>
         <label htmlFor="name">
         <strong>Name:</strong>

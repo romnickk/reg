@@ -7,7 +7,7 @@ const app = express();
 
 app.use(cors(
     {
-        origin: ["https://reg-client-mu.vercel.app"],
+        origin: ["https://deploy-mern-1whq.vercel.app"],
         methods:["POST","GET"],
         credentials:true
     }
@@ -19,16 +19,15 @@ mongoose.connect("mongodb+srv://romnick:1234@romnickdb.e14diyv.mongodb.net/reg")
 app.post('/register', async(req,res)=>{
     const {name,username,password} = req.body;
 
-    const user = await User.findOne({username})
+    const users = await User.findOne({username})
     try {
-        if(user){
-        res.status(409).json({error: "User already exist"})
-        }else{
-        const saveUser = new User({name:name,username:username,password:password});
-        await saveUser.save();
+        if(users){
+            res.status(500).json({error: "user exist"})
         }
+        const saveUser = new User({name,username,password})
+        await saveUser.save();
     } catch (error) {
-        
+        console.error(error)
     }
 
     
